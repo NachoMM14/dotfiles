@@ -15,12 +15,14 @@ source ~/.dotfiles/.aliases
 
 export PAGER="less"
 
+# node
+export NVM_DIR=$HOME/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # zoxide
 eval "$(zoxide init zsh)"
 rm -f ~/.zcompdump*; compinit
-
-# mcfly
-eval "$(mcfly init zsh)"
 
 # PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH

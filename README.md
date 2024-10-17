@@ -25,7 +25,6 @@ Script to prepare your GNU/Linux terminal (WSL also) in a «superterminal» with
 | htop (top) |
 | icdiff (diff) |
 | fd (find) |
-| mcfly (ctr+r) |
 
 ## Installation
 
