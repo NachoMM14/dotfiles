@@ -1,41 +1,24 @@
-#!/bin/bash
+export DEBIAN_FRONTEND=noninteractive
 
-# Script for prepare GNU/Linux
-# Update linux
-sudo apt-get autoremove -y
-sudo apt-get upgrade -y
+sudo apt update -y && sudo apt install -y \
+    zsh zgen git curl wget \
+    vim less icdiff fd-find \
+    htop unzip zip bat ripgrep eza ccze
 
-# Essentials
-sudo apt-get update -y && sudo apt-get install -y \
-    bash zsh zgen sudo wget git g++ make nodejs gnupg ca-certificates lsb-release \
-    vim libbrotli-dev cmake  \
-    ccze jq less icdiff catimg zoxide fd-find \
-    curl httpie \
-    man htop duf ncdu \
-    unzip zip \
-    locales locales-all \
-    bat exa \
-    lolcat figlet
+# pnpm + Node LTS
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+pnpm env use --global lts
 
-# Fix batcat -> bat
-sudo ln -s $(which batcat) /usr/local/bin/bat
+# Starship prompt
+curl -sS https://starship.rs/install.sh | sh -s -- -y
+mkdir -p ~/.config
+starship preset nerd-font-symbols -o ~/.config/starship.toml
 
-# Fix fdfind -> fd
-sudo ln -s $(which fdfind) /usr/local/bin/fd
+touch ~/.zshrc
+grep -qF "source $HOME/.dotfiles/.zshrc" ~/.zshrc || echo "source $HOME/.dotfiles/.zshrc" >> ~/.zshrc
 
-# Oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-sudo mv $HOME/.dotfiles/custom.zsh-theme $HOME/.oh-my-zsh/custom/themes
-echo source $HOME/.dotfiles/.zshrc >> ~/.zshrc
-
-PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Node / NPM install
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-source $HOME/.nvm/nvm.sh
-nvm install --lts
-
-# Change to ZSH
 chsh -s $(which zsh)
 
-zsh
+exec zsh

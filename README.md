@@ -4,24 +4,18 @@ Script to prepare your GNU/Linux terminal (WSL also) in a «superterminal» with
 
 ## Includes
 
-- **Shell**: ZSH + OH-MY-ZSH + Custom theme
+- **Shell**: ZSH
 - **Plugins**: Zgen plugin manager + Syntax Highlighting + Autosuggestions + History Search
-- **Essentials tools**: sudo + wget + git + make + cmake + g++ + nodejs + gnupg + ca-certificates + lsb-release
+- **Essentials tools**: sudo + wget + git
 - **CLI Editors**: vim
-- **CLI tools**: ccze + jq + less
-- **API/Request tools**: curl + httpie
-- **Help/Info**: man
-- **Fun**: lolcat + figlet
+- **CLI tools**: ccze + less
+- **API/Request tools**: curl
 - **Compressors/conversors**: unzip + zip
 
 | **Modern commands** |
 |-|
 | bat (cat) |
-| exa (ls, tree) |
-| catimg (image cat) |
-| duf (df) |
-| ncdu (du) |
-| zoxide (cd) |
+| eza (ls, tree) |
 | htop (top) |
 | icdiff (diff) |
 | fd (find) |

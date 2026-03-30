@@ -1,6 +1,12 @@
-alias tree="exa --icons --tree -L 1 -I node_modules"
-alias ls="exa --icons"
+alias tree="eza --icons --tree -I node_modules"
+alias ls="eza --icons"
 alias grep="grep --color"
-alias cat="bat"
+alias bat="batcat"
+alias fd="fdfind"
+alias cat="batcat"
 alias diff="icdiff"
 alias projects="cd ~/projects"
+alias ..="cd .."
+alias ...="cd ../.."
+take() { mkdir -p "$1" && cd "$1"; }
+tail() { command tail "$@" | ccze -A; }
