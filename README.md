@@ -19,6 +19,13 @@ Script to prepare your GNU/Linux terminal (WSL also) in a «superterminal» with
 | htop (top) |
 | icdiff (diff) |
 | fd (find) |
+| ripgrep (grep) |
+| ccze (tail coloreado) |
+| fzf (buscador difuso) |
+
+## Requirements
+
+- **Nerd Font** for icons in Starship and eza.
 
 ## Installation
 
